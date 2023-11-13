@@ -1,0 +1,13 @@
+PALABRA;TIPO;DESCRIPCIÓN;FRECUENCIA DE CONOCIMIENTO;EJEMPLO DE USO;SINÓNIMOS;ANTÓNIMOS
+interpretar;verbo;Explicar o declarar el sentido de algo, y principalmente el de un texto.;100;Me costó interpretar sus gestos.;explicar:100-descifrar:95-traducir:100;confundir:100-oscurecer:100-intrincar:56
+confundir;verbo;Mezclar cosas diversas de manera que no puedan reonocerse o distinguirse.;100;Sus voces se confundían en el griterío.;enredar:100-embrollar:75-trabucar:6;orientar:100-ordenar:100-dilucidar:60
+intrincar;verbo;Enredar o enmarañar algo.;56;Problemas técnicos intrincaron la situación.;liar:80-embrollar:75-enredar:100-enmarañar:58;solucionar:100-dilucidar:60-desenredar:100-aclarar:100-desenredar:100-desenmarañar:64
+palabra;sustantivo;Unidad lingüística, dotada generalmente de significado, que se separa de las demás mediante pausas potenciales en la pronunciación y blancos en la escritura.;100;Una imagen vale más que mil palabras.;vocablo:78-término:98-expresión:95;
+vocablo;sustantivo;Unidad léxica constituida por sonidos, con significado fijo y una categoría gramatical.;78;Él maneja una gran cantidad de vocablos.;palabra:100-término:98-expresión:95;
+pelota;sustantivo;Bola hecha de una materia que le permita botar, usada en diversos juegos y deportes.;100;Mi mamá me compró una pelota.;balón:98-bola:100;
+muralla;sustantivo;Muro u obra defensiva que rodea una plaza fuerte o protege un territorio.;100;El niño rayó la muralla.;muro:100-pared:100;
+bonito;adjetivo;Lindo, agraciado, de cierta proporción y belleza.;100;Ese perro me parece bonito.;bello:100-hermoso:100-lindo:100-precioso:100;feo:100-horrible:100-horroroso:98-repelente:90
+oscuro;adjetivo;Lamentable, desacertado o poco oportuno.;100;Una habitación oscura.;apagado:100-tenebroso:93-sombrío:69-lóbrego:35;iluminado:100-claro:100-brillante:100-luminoso:98
+abyecto;adjetivo;Despreciable, vil en extremo.;10;No estoy involucrada en ese abyecto crimen.;infame:74-miserable:84-despreciable:82-ruin:63-ignominioso:19;bueno:100-digno:92-honorable:82-honroso:82-noble:90
+ver;verbo;Percibir con los ojos algo mediante la acción de la luz;100;El viernes veré un partido de tenis.;mirar:100-observar:100-divisar:95-otear:29-ojear:78-avistar:66-contemplar:70;ignorar:92-inadvertir:56
+geografía;sustantivo;Ciencia que trata de la descripción de la Tierra.;97;Estudiaré geografía.;;
