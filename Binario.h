@@ -1,6 +1,13 @@
 #pragma once
 using namespace std;
 
+#define MAX_PALABRA 20
+#define MAX_TIPO 20
+#define MAX_DESCRIPCION 200
+#define MAX_EJEMPLO 100
+#define MAX_SINONIMOS 20
+#define MAX_ANTONIMOS 20
+
 // Struct para sinonimos y antonimos
 struct struct_secundario
 {
@@ -11,13 +18,13 @@ struct struct_secundario
 // Struct principal para palabras
 struct struct_principal
 {
-    char palabra[20];
-    char tipo[10];
-    char descripcion[200];
+    char palabra[MAX_PALABRA];
+    char tipo[MAX_TIPO];
+    char descripcion[MAX_DESCRIPCION];
     int frecuencia_conocimiento;
-    char ejemplo[50];
-    struct_secundario sinonimos[20];
-    struct_secundario antonimos[20];
+    char ejemplo[MAX_EJEMPLO];
+    struct_secundario sinonimos[MAX_SINONIMOS];
+    struct_secundario antonimos[MAX_ANTONIMOS];
     int cant_sinonimos;
     int cant_antonimos;
 };
@@ -31,6 +38,8 @@ struct info_binario
 
 class Binario
 {
+private:
+    info_binario info;
 public:
     // Función que construye un archivo binario a partir de un CSV
     void construir();

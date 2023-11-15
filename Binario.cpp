@@ -8,6 +8,14 @@ using namespace std;
 
 const char NOMBRE_CSV[] = "palabras.csv";
 const char NOMBRE_BIN[] = "palabras.dat";
+void mostrar_info_principal(struct_principal info)
+{
+    cout << info.palabra << endl;
+    cout << info.tipo << endl;
+    cout << info.descripcion << endl;
+    cout << info.frecuencia_conocimiento << endl;
+    cout << info.ejemplo << endl;
+}
 
 void Binario::construir()
 {
@@ -41,7 +49,7 @@ void Binario::construir()
             while (getline(columnas_archivo, linea, ';'))
             {
                 // Si la columna tiene contenido
-                if (linea[0] != '\n' && linea[0] != '\r')
+                if (linea.length() != 0 && linea[0] != '\n' && linea[0] != '\r')
                 {
                     switch (columna)
                     {
@@ -65,7 +73,6 @@ void Binario::construir()
                             while (getline(datos_col, linea, '-'))
                             {
                                 sub_datos_col.str(linea);
-
                                 // Obteniendo palabra
                                 getline(sub_datos_col, linea, ':');
                                 // Asignando palabra a nuevo dato
@@ -102,7 +109,6 @@ void Binario::construir()
                             }
                             break;
                     }
-
                 }
                 datos_col.clear();
                 columna == 7 ? columna = 1 : columna++;

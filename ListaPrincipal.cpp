@@ -74,7 +74,7 @@ void ListaPrincipal::eliminar(char palabra[])
         if (q->palabra == palabra)
         {
             delete q->sinonimos;
-            delete q->sinonimos;
+            delete q->antonimos;
             delete q;
         }
     }
@@ -85,7 +85,11 @@ void ListaPrincipal::mostrar()
     nodo_principal* q = p;
     while (q)
     {
-        cout << "Palabra: " << q->palabra << endl;
+        cout << "Palabra: " << q->palabra << endl
+            << "Tipo: " << q->tipo << endl
+            << "Descripción: " << q->descripcion << endl
+            << "Frecuencia de conocimiento: " << q->frecuencia_conocimiento << endl
+             << "Ejemplo de uso: " << q->ejemplo << endl;
         cout << "Sinonimos:" << endl;
         q->sinonimos->mostrar();
         cout << "Antonimos:" << endl;

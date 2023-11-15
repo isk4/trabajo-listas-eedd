@@ -2,10 +2,12 @@
 #include <iostream>
 #include "ListaSecundaria.h"
 #include "Binario.h"
+
 #define MAX_PALABRA 20
-#define MAX_TIPO 10
+#define MAX_TIPO 20
 #define MAX_DESCRIPCION 200
-#define MAX_EJEMPLO 50
+#define MAX_EJEMPLO 100
+
 using namespace std;
 
 // Struct de los nodos de la lista
