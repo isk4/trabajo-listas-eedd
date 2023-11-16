@@ -18,7 +18,7 @@ void mostrar_info_principal(struct_principal info)
 }
 
 void Binario::construir()
-{
+{   
     // Se incializan en cero las cantidades de elementos
     info_binario struct_binario = {};
     // Nodo para trabajar con las palabras principales
@@ -42,7 +42,7 @@ void Binario::construir()
         getline(archivo_entrada, linea);
         // Leyendo contenido
         while(getline(archivo_entrada, linea))
-        {
+        {   
             info_principal = {};
             columna = 1;
             columnas_archivo.str(linea);
