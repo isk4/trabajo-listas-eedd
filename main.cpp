@@ -22,7 +22,7 @@ int main()
     info_binario info;
     ListaPrincipal lista_principal;
     Binario bin;
-    bin.construir();
+    //bin.construir();
     info = bin.extraerDatos();
     lista_principal.llenarConBinario(info);
     lista_principal.mostrar();
