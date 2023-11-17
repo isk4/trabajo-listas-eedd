@@ -1,17 +1,19 @@
 #pragma once
 using namespace std;
 
+// Definicion de largos maximos para strings
 #define MAX_PALABRA 20
 #define MAX_TIPO 20
 #define MAX_DESCRIPCION 200
 #define MAX_EJEMPLO 100
 #define MAX_SINONIMOS 20
 #define MAX_ANTONIMOS 20
+#define MAX_DATOS 20
 
 // Struct para sinonimos y antonimos
 struct struct_secundario
 {
-    char palabra[20];
+    char palabra[MAX_PALABRA];
     int frecuencia_conocimiento;
 };
 
@@ -32,14 +34,13 @@ struct struct_principal
 // Almacén de datos para ingreso y lectura a un archivo binario
 struct info_binario
 {
-    struct_principal datos[20];
+    struct_principal datos[MAX_DATOS];
     int cant_datos;
 };
 
+// Clase para manejar archivos binarios
 class Binario
 {
-private:
-    info_binario info;
 public:
     // Función que construye un archivo binario a partir de un CSV
     void construir();
