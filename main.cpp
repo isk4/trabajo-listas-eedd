@@ -24,6 +24,8 @@ manejamos datos de una encuesta de lenguaje).
 
 using namespace std;
 
+void iniciar_menu(ListaPrincipal* lista_principal);
+
 int main()
 {
     // Struct que organiza los datos de un binario
@@ -41,7 +43,54 @@ int main()
     info = bin.extraerDatos();
     // Llenamos la lista con los datos del binario
     lista_principal.llenarConBinario(info);
-    // Mostramos la lista de palabras (con sus sinónimos y antónimos)
-    lista_principal.mostrar();
+    
+
+    // Iniciando menu
+    iniciar_menu(&lista_principal);
+
+    cout << "\nAdiós.\n";
     return 0;
+}
+
+void iniciar_menu(ListaPrincipal* lista_principal)
+{
+    // Booleano que controla si el menu continuará mostránodse o no
+    bool continuar = true;
+    // String que recibe input del usuario
+    string input_usuario;
+    // Opción del menu elegida
+    int opcion_menu;
+    while (continuar)
+    {
+        cout << "\n------------------------------------------------\nMenú de opciones"
+            << "\n------------------------------------------------\n"
+            << "\n1. Mostrar todas las palabras disponibles y sus detalles\n"
+            << "2. Salir\n\nIngrese una opción: ";
+        getline(cin, input_usuario);
+        cout << "------------------------------------------------\n";
+
+        // Verificamos si el input es correcto
+        try
+        {
+            opcion_menu = stoi(input_usuario);
+            if (opcion_menu < 1 || opcion_menu > 10) throw 0;
+        }
+        // Atajamos cualquier error y asignamos valor aleatorio en case de haberlo
+        catch (...) { opcion_menu = -1; }
+
+        switch (opcion_menu)
+        {
+            case 1:
+                // Mostramos la lista de palabras (con sus sinónimos y antónimos)
+                lista_principal->mostrar();
+                break;
+            case 2:
+                // Salimos del ciclo
+                continuar = false;
+                break;
+            default:
+                // Mostramos error
+                cout << "\nError de entrada. Intenta nuevamente\n\n";
+        }
+    }
 }
