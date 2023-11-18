@@ -62,12 +62,12 @@ void iniciar_menu(ListaPrincipal* lista_principal)
     int opcion_menu;
     while (continuar)
     {
-        cout << "\n------------------------------------------------\nMenú de opciones"
+        cout << "\nMenú de opciones"
             << "\n------------------------------------------------\n"
             << "\n1. Mostrar todas las palabras disponibles y sus detalles\n"
-            << "2. Salir\n\nIngrese una opción: ";
+            << "2. Mostrar palabras más usadas\n"
+            << "0. Salir\n\nIngrese una opción: ";
         getline(cin, input_usuario);
-        cout << "------------------------------------------------\n";
 
         // Verificamos si el input es correcto
         try
@@ -85,6 +85,10 @@ void iniciar_menu(ListaPrincipal* lista_principal)
                 lista_principal->mostrar();
                 break;
             case 2:
+                // Mostramos las palabras más y menos usadas;
+                lista_principal->mostrarMayorMenorFreq();
+                break;
+            case 0:
                 // Salimos del ciclo
                 continuar = false;
                 break;
@@ -92,5 +96,6 @@ void iniciar_menu(ListaPrincipal* lista_principal)
                 // Mostramos error
                 cout << "\nError de entrada. Intenta nuevamente\n\n";
         }
+        cout << endl;
     }
 }

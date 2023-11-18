@@ -50,4 +50,6 @@ public:
     void eliminar(char palabra[]);
     // Función que muestra la lista (con cada sublista asociada a cada palabra)
     void mostrar();
+    // Función que muestra las palabras con mayor y menor frecuencia
+    void mostrarMayorMenorFreq();
 };

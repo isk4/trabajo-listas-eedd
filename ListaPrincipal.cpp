@@ -86,6 +86,7 @@ void ListaPrincipal::eliminar(char palabra[])
 void ListaPrincipal::mostrar()
 {
     nodo_principal* q = p;
+    cout << "Palabras disponibles y sus detalles\n\n";
     while (q)
     {
         // Se muestra la información de la palabra
@@ -134,5 +135,52 @@ void ListaPrincipal::llenarConBinario(info_binario info)
             lista_sinonimos,
             lista_antonimos
         );
+    }
+}
+
+void ListaPrincipal::mostrarMayorMenorFreq()
+{
+    int max;
+    int min;
+    if (p)
+    {
+        nodo_principal* q = p;
+        // Inicializamos el máximo
+        max = min = q->frecuencia_conocimiento;
+        while (q)
+        {   
+            if (q->frecuencia_conocimiento > max) max = q->frecuencia_conocimiento;
+            else if (q->frecuencia_conocimiento < min) min = q->frecuencia_conocimiento;
+            q = q->sig;
+        }
+        // Devolvemos "q" a la cabeza de la lista
+        q = p;
+
+        cout << "\n------------------------------------------------\nPalabras más usadas\n"
+            << "------------------------------------------------\n"
+            << "Frecuencia máxima: " << max << "\n\n";
+        // Mostramos las palabras de mayor frecuencia
+        while (q)
+        {
+            if (q->frecuencia_conocimiento == max) cout << "- " << q->palabra << endl;
+            q = q->sig;
+        }
+        cout << "\n------------------------------------------------\n";
+        // Devolvemos "q" a la cabeza de la lista
+        q = p;
+        cout << "\n------------------------------------------------\nPalabras menos usadas\n"
+            << "------------------------------------------------\n"
+            << "Frecuencia mínima: " << min << "\n\n";
+        // Mostramos las palabras de menor frecuencia
+        while (q)
+        {
+            if (q->frecuencia_conocimiento == min) cout << "- " << q->palabra << endl;
+            q = q->sig;
+        }
+        cout << "\n------------------------------------------------\n";
+    }
+    else
+    {
+        cout << "\n\nLa lista está vacía\n";
     }
 }
