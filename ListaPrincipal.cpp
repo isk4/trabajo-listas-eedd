@@ -74,7 +74,7 @@ void ListaPrincipal::eliminar(char palabra[])
     while (q)
     {
         // Si coincide la palabra, se borran sus sublistas asociadas
-        if (q->palabra == palabra)
+        if (!strcasecmp(q->palabra, palabra))
         {
             delete q->sinonimos;
             delete q->antonimos;

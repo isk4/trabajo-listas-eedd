@@ -67,6 +67,7 @@ void ListaSecundaria::eliminar(char palabra[])
 {
     nodo_secundario* q = p;
     while (q)
-        if (q->palabra == palabra)
-            delete q;
+    {
+        if (!strcasecmp(q->palabra, palabra)) delete q;
+    }
 }
