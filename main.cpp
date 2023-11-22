@@ -43,5 +43,10 @@ int main()
     lista_principal.llenarConBinario(info);
     // Mostramos la lista de palabras (con sus sinónimos y antónimos)
     lista_principal.mostrar();
+
+    // Ejemplo de eliminación de palabra
+    // char palabra_a_eliminar[] = "vocablo";
+    // lista_principal.eliminar(palabra_a_eliminar);
+    
     return 0;
 }

@@ -69,16 +69,33 @@ void ListaPrincipal::ingresar
 }
 
 void ListaPrincipal::eliminar(char palabra[])
-{
-    nodo_principal* q = p;
-    while (q)
+{   
+    nodo_principal* q;
+    nodo_principal* r;
+    if (p)
     {
-        // Si coincide la palabra, se borran sus sublistas asociadas
-        if (!strcasecmp(q->palabra, palabra))
-        {
-            delete q->sinonimos;
-            delete q->antonimos;
+        q = p;
+        if (!strcasecmp(p->palabra, palabra))
+        { 
+            p = p->sig;
             delete q;
+        }
+        else
+        {
+            // Eliminamos todas las coincidencias
+            while (q)
+            {
+                r = q;
+                q = q->sig;
+
+                if (q && !strcasecmp(q->palabra, palabra))
+                {
+                    r->sig = q->sig;
+                    delete q->sinonimos;
+                    delete q->antonimos;
+                    delete q;
+                }
+            }
         }
     }
 }
