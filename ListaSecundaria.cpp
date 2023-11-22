@@ -65,9 +65,30 @@ void ListaSecundaria::mostrar()
 
 void ListaSecundaria::eliminar(char palabra[])
 {
-    nodo_secundario* q = p;
-    while (q)
+    nodo_secundario* q;
+    nodo_secundario* r;
+    if (p)
     {
-        if (!strcasecmp(q->palabra, palabra)) delete q;
+        q = p;
+        if (!strcasecmp(p->palabra, palabra))
+        { 
+            p = p->sig;
+            delete q;
+        }
+        else
+        {
+            // Eliminamos todas las coincidencias
+            while (q)
+            {
+                r = q;
+                q = q->sig;
+
+                if (q && !strcasecmp(q->palabra, palabra))
+                {
+                    r->sig = q->sig;
+                    delete q;
+                }
+            }
+        }
     }
 }

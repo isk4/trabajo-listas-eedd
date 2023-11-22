@@ -43,12 +43,16 @@ int main()
     info = bin.extraerDatos();
     // Llenamos la lista con los datos del binario
     lista_principal.llenarConBinario(info);
-    
 
     // Iniciando menu
     iniciar_menu(&lista_principal);
 
     cout << "\nAdiós.\n";
+
+    // Ejemplo de eliminación de palabra
+    // char palabra_a_eliminar[] = "vocablo";
+    // lista_principal.eliminar(palabra_a_eliminar);
+    
     return 0;
 }
 
