@@ -77,7 +77,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
         try
         {
             opcion_menu = stoi(input_usuario);
-            if (opcion_menu < 1 || opcion_menu > 10) throw 0;
+            if (opcion_menu < 0 || opcion_menu > 10) throw 0;
         }
         // Atajamos cualquier error y asignamos valor aleatorio en case de haberlo
         catch (...) { opcion_menu = -1; }
