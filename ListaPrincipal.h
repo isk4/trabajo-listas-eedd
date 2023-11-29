@@ -52,4 +52,6 @@ public:
     void mostrar();
     // Función que muestra las palabras con mayor y menor frecuencia
     void mostrarMayorMenorFreq();
+    // Función que muestra palabras sin sinónimos ni antónimos
+    void mostrarSinSecundarias();
 };

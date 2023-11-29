@@ -70,6 +70,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
             << "\n------------------------------------------------\n"
             << "\n1. Mostrar todas las palabras disponibles y sus detalles\n"
             << "2. Mostrar palabras más y menos usadas\n"
+            << "3. Mostrar palabras sin sinónimos\n"
             << "0. Salir\n\nIngrese una opción: ";
         getline(cin, input_usuario);
 
@@ -92,6 +93,10 @@ void iniciar_menu(ListaPrincipal* lista_principal)
             case 2:
                 // Mostramos las palabras más y menos usadas;
                 lista_principal->mostrarMayorMenorFreq();
+                break;
+            case 3:
+                // Mostramos las palabras sin sinónimos ni antónimos;
+                lista_principal->mostrarSinSecundarias();
                 break;
             case 0:
                 // Salimos del ciclo

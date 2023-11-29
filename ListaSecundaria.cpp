@@ -92,3 +92,8 @@ void ListaSecundaria::eliminar(char palabra[])
         }
     }
 }
+
+bool ListaSecundaria::vacia()
+{
+    return !p;
+}

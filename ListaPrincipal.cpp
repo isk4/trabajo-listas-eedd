@@ -54,7 +54,7 @@ void ListaPrincipal::ingresar
         q->sig = p;
         
         // Comparamos alfabéticamente las palabras para ingresarlas
-        if (!p || strcasecmp(q->palabra, p->palabra) <= 0)
+        if (!p || strcasecmp(q->palabra, p->palabra) < 0)
             p = q;
         else {
             r = p->sig;
@@ -169,7 +169,7 @@ void ListaPrincipal::mostrarMayorMenorFreq()
         {   
             if (q->frecuencia_conocimiento > max) max = q->frecuencia_conocimiento;
             if (q->frecuencia_conocimiento < min) min = q->frecuencia_conocimiento;
-            
+
             q = q->sig;
         }
         // Devolvemos "q" a la cabeza de la lista
@@ -198,5 +198,20 @@ void ListaPrincipal::mostrarMayorMenorFreq()
     else
     {
         cout << "\n\nLa lista está vacía\n";
+    }
+}
+
+void ListaPrincipal::mostrarSinSecundarias()
+{
+    nodo_principal* q = p;
+    cout << "Palabras sin sinónimos ni antónimos\n"
+        << "------------------------------------------------\n";
+    while (q)
+    {
+        if (q->sinonimos->vacia() && q->antonimos->vacia())
+        {
+            cout << " - " << q->palabra << endl;
+        }
+        q = q->sig;
     }
 }

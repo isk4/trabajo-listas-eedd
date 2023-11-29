@@ -18,8 +18,10 @@ private:
 public:
     ListaSecundaria();
     ~ListaSecundaria();
-    // Funcion ingreso modificada para los datos requeridos
+    // Función ingreso modificada para los datos requeridos
     void ingresar(char palabra[], int frecuencia_conocimiento);
     void eliminar(char palabra[]);
     void mostrar();
+    // Función que verifica si la lista está vacía
+    bool vacia();
 };
