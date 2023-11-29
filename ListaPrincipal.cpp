@@ -103,19 +103,20 @@ void ListaPrincipal::eliminar(char palabra[])
 void ListaPrincipal::mostrar()
 {
     nodo_principal* q = p;
-    cout << "Palabras disponibles y sus detalles\n\n";
+    cout << "Palabras disponibles y sus detalles\n"
+        << "------------------------------------------------\n\n";
     while (q)
     {
         // Se muestra la información de la palabra
-        cout << "Palabra: " << q->palabra << endl
-            << "Tipo: " << q->tipo << endl
-            << "Descripción: " << q->descripcion << endl
-            << "Frecuencia de conocimiento: " << q->frecuencia_conocimiento << endl
-             << "Ejemplo de uso: " << q->ejemplo << endl;
-        cout << "Sinonimos:" << endl;
+        cout << " Palabra: " << q->palabra << endl
+            << " Tipo: " << q->tipo << endl
+            << " Descripción: " << q->descripcion << endl
+            << " Frecuencia de conocimiento: " << q->frecuencia_conocimiento << endl
+             << " Ejemplo de uso: " << q->ejemplo << endl;
+        cout << " Sinonimos:" << endl;
         // Se muestran las listas de sinónimos y antónimos de la palabra
         q->sinonimos->mostrar();
-        cout << "Antonimos:" << endl;
+        cout << " Antonimos:" << endl;
         q->antonimos->mostrar();
         cout << "------------------------------------------------" << endl;
         q = q->sig;
@@ -167,34 +168,32 @@ void ListaPrincipal::mostrarMayorMenorFreq()
         while (q)
         {   
             if (q->frecuencia_conocimiento > max) max = q->frecuencia_conocimiento;
-            else if (q->frecuencia_conocimiento < min) min = q->frecuencia_conocimiento;
+            if (q->frecuencia_conocimiento < min) min = q->frecuencia_conocimiento;
+            
             q = q->sig;
         }
         // Devolvemos "q" a la cabeza de la lista
         q = p;
 
-        cout << "\n------------------------------------------------\nPalabras más usadas\n"
-            << "------------------------------------------------\n"
-            << "Frecuencia máxima: " << max << "\n\n";
+        cout << "Palabras más usadas (frecuencia máxima: " << max << ")\n"
+            << "------------------------------------------------\n";
         // Mostramos las palabras de mayor frecuencia
         while (q)
         {
-            if (q->frecuencia_conocimiento == max) cout << "- " << q->palabra << endl;
+            if (q->frecuencia_conocimiento == max) cout << " - " << q->palabra << endl;
             q = q->sig;
         }
-        cout << "\n------------------------------------------------\n";
+
         // Devolvemos "q" a la cabeza de la lista
         q = p;
-        cout << "\n------------------------------------------------\nPalabras menos usadas\n"
-            << "------------------------------------------------\n"
-            << "Frecuencia mínima: " << min << "\n\n";
+        cout << "\nPalabras menos usadas (frecuencia mínima: " << min << ")\n"
+            << "------------------------------------------------\n";
         // Mostramos las palabras de menor frecuencia
         while (q)
         {
-            if (q->frecuencia_conocimiento == min) cout << "- " << q->palabra << endl;
+            if (q->frecuencia_conocimiento == min) cout << " - " << q->palabra << endl;
             q = q->sig;
         }
-        cout << "\n------------------------------------------------\n";
     }
     else
     {

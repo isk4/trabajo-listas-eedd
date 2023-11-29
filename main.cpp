@@ -69,7 +69,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
         cout << "\nMenú de opciones"
             << "\n------------------------------------------------\n"
             << "\n1. Mostrar todas las palabras disponibles y sus detalles\n"
-            << "2. Mostrar palabras más usadas\n"
+            << "2. Mostrar palabras más y menos usadas\n"
             << "0. Salir\n\nIngrese una opción: ";
         getline(cin, input_usuario);
 
@@ -82,6 +82,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
         // Atajamos cualquier error y asignamos valor aleatorio en case de haberlo
         catch (...) { opcion_menu = -1; }
 
+        cout << endl << endl;
         switch (opcion_menu)
         {
             case 1:
