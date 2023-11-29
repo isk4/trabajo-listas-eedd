@@ -208,10 +208,69 @@ void ListaPrincipal::mostrarSinSecundarias()
         << "------------------------------------------------\n";
     while (q)
     {
+        // Verificamos que ambas listas secundarias estén vacías y mostramos
         if (q->sinonimos->vacia() && q->antonimos->vacia())
         {
             cout << " - " << q->palabra << endl;
         }
         q = q->sig;
+    }
+}
+
+void ListaPrincipal::mostrarMasSinonimos()
+{
+    nodo_principal* q = p;
+    int max = 0;
+    int aux;
+
+    if (q)
+    {
+        // Calculamos la palabra con mayor cantidad de sinonimos
+        while (q)
+        {
+            aux = q->sinonimos->largo();
+            if (aux > max) max = aux;
+            q = q->sig;
+        }
+        // Nos devolvemos a la cabeza de la lista para mostrar las palabras
+        // que tengan la mayor cantidad sinónimos
+        q = p;
+        cout << "Palabras con más sinónimos (máximo: " << max << ")\n"
+            << "------------------------------------------------\n";
+        while (q)
+        {
+            aux = q->sinonimos->largo();
+            if (aux == max) cout << q->palabra << endl;
+            q = q->sig;
+        }
+    }
+}
+
+void ListaPrincipal::mostrarMasAntonimos()
+{
+    nodo_principal* q = p;
+    int max = 0;
+    int aux;
+
+    if (q)
+    {
+        // Calculamos la palabra con mayor cantidad de antónimos
+        while (q)
+        {
+            aux = q->antonimos->largo();
+            if (aux > max) max = aux;
+            q = q->sig;
+        }
+        // Nos devolvemos a la cabeza de la lista para mostrar las palabras
+        // que tengan la mayor cantidad antónimos
+        cout << "Palabras con más antónimos (máximo: " << max << ")\n"
+            << "------------------------------------------------\n";
+        q = p;
+        while (q)
+        {
+            aux = q->antonimos->largo();
+            if (aux == max) cout << q->palabra << endl;
+            q = q->sig;
+        }
     }
 }

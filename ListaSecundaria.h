@@ -24,4 +24,6 @@ public:
     void mostrar();
     // Función que verifica si la lista está vacía
     bool vacia();
+    // Función que cuenta la cantidad de elementos en la lista
+    int largo();
 };

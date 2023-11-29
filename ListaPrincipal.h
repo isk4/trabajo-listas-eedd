@@ -54,4 +54,8 @@ public:
     void mostrarMayorMenorFreq();
     // Función que muestra palabras sin sinónimos ni antónimos
     void mostrarSinSecundarias();
+    // Función que muestra las palabras con más sinónimos
+    void mostrarMasSinonimos();
+    // Función que muestra las palabras con más antónimos
+    void mostrarMasAntonimos();
 };

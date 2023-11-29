@@ -97,3 +97,15 @@ bool ListaSecundaria::vacia()
 {
     return !p;
 }
+
+int ListaSecundaria::largo()
+{
+    nodo_secundario* q = p;
+    int largo = 0;
+    while (q)
+    {
+        largo++;
+        q = q->sig;
+    }
+    return largo;
+}
