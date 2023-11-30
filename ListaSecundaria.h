@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <map>
 #define MAX_PALABRA 20
 using namespace std;
 
@@ -26,4 +27,6 @@ public:
     bool vacia();
     // Función que cuenta la cantidad de elementos en la lista
     int largo();
+    // Funci
+    void anadirMapa(map<string, int> &mapa);
 };

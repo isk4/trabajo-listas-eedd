@@ -1,6 +1,7 @@
 #include "ListaSecundaria.h"
 #include <iostream>
 #include <cstring>
+#include <map>
 using namespace std;
 
 ListaSecundaria::ListaSecundaria()
@@ -108,4 +109,18 @@ int ListaSecundaria::largo()
         q = q->sig;
     }
     return largo;
+} 
+
+void ListaSecundaria::anadirMapa(map<string, int> &mapa)
+{
+    nodo_secundario* q = p;
+
+    while (q)
+    {
+        // Intentamos ingresar la palabra en el mapa
+        if (!mapa.insert(pair<string, int>(q->palabra, 1)).second)
+            // Si no se pudo insertar, actualizamos su frecuencia
+            mapa[q->palabra]++;
+        q = q->sig;
+    }
 }

@@ -74,6 +74,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
             << "4. Mostrar palabras con más sinónimos\n"
             << "5. Mostrar palabras con más antónimos\n"
             << "6. Mostrar palabras por tipo\n"
+            << "7. Mostrar sinónimo que más se repite entre las palabras\n"
             << "0. Salir\n\nIngrese una opción: ";
         getline(cin, input_usuario);
 
@@ -112,6 +113,10 @@ void iniciar_menu(ListaPrincipal* lista_principal)
             case 6:
                 // Mostramos las palabras por tipo
                 lista_principal->mostrarPorTipo();
+                break;
+            case 7:
+                // Mostramos el sinónimo que más se repite entre las palabras
+                lista_principal->mostrarSinonimoMasFrecuente();
                 break;
             case 0:
                 // Salimos del ciclo

@@ -60,4 +60,6 @@ public:
     void mostrarMasAntonimos();
     // Función que muestra las palabras de cierto tipo
     void mostrarPorTipo();
+    // Función que muestra el sinónimo más frecuente entre las palabras
+    void mostrarSinonimoMasFrecuente();
 };

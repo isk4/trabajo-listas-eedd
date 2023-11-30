@@ -1,5 +1,6 @@
 #include "ListaPrincipal.h"
 #include "ListaSecundaria.h"
+#include <map>
 #include <iostream>
 #include <cstring>
 using namespace std;
@@ -329,5 +330,31 @@ void ListaPrincipal::mostrarPorTipo()
             if (!strcasecmp(q->tipo, tipo.c_str())) cout << " " << q->palabra << endl;
             q = q->sig;
         }
+    }
+}
+
+void ListaPrincipal::mostrarSinonimoMasFrecuente()
+{
+    nodo_principal* q = p;
+    int max = 0;
+    map<string, int> mapa_sinonimos;
+    map<string, int>::iterator elemento;
+
+    while (q)
+    {
+        q->sinonimos->anadirMapa(mapa_sinonimos);
+        q = q->sig;
+    }
+
+    for (elemento = mapa_sinonimos.begin(); elemento != mapa_sinonimos.end(); elemento++)
+    {
+        if (elemento->second > max && elemento->second >= 2) max = elemento->second;
+    }
+    cout << "Sinónimos que más se repiten (frecuencia: " << max << ")\n"
+        << "------------------------------------------------\n";
+
+    for (elemento = mapa_sinonimos.begin(); elemento != mapa_sinonimos.end(); elemento++)
+    {
+        if (elemento->second == max) cout << " " << elemento->first << endl;
     }
 }
