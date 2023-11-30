@@ -180,7 +180,7 @@ void ListaPrincipal::mostrarMayorMenorFreq()
         // Mostramos las palabras de mayor frecuencia
         while (q)
         {
-            if (q->frecuencia_conocimiento == max) cout << " - " << q->palabra << endl;
+            if (q->frecuencia_conocimiento == max) cout << " " << q->palabra << endl;
             q = q->sig;
         }
 
@@ -191,7 +191,7 @@ void ListaPrincipal::mostrarMayorMenorFreq()
         // Mostramos las palabras de menor frecuencia
         while (q)
         {
-            if (q->frecuencia_conocimiento == min) cout << " - " << q->palabra << endl;
+            if (q->frecuencia_conocimiento == min) cout << " " << q->palabra << endl;
             q = q->sig;
         }
     }
@@ -211,7 +211,7 @@ void ListaPrincipal::mostrarSinSecundarias()
         // Verificamos que ambas listas secundarias estén vacías y mostramos
         if (q->sinonimos->vacia() && q->antonimos->vacia())
         {
-            cout << " - " << q->palabra << endl;
+            cout << " " << q->palabra << endl;
         }
         q = q->sig;
     }
@@ -240,7 +240,7 @@ void ListaPrincipal::mostrarMasSinonimos()
         while (q)
         {
             aux = q->sinonimos->largo();
-            if (aux == max) cout << q->palabra << endl;
+            if (aux == max) cout << " " << q->palabra << endl;
             q = q->sig;
         }
     }
@@ -269,7 +269,7 @@ void ListaPrincipal::mostrarMasAntonimos()
         while (q)
         {
             aux = q->antonimos->largo();
-            if (aux == max) cout << q->palabra << endl;
+            if (aux == max) cout << " " << q->palabra << endl;
             q = q->sig;
         }
     }
@@ -326,7 +326,7 @@ void ListaPrincipal::mostrarPorTipo()
             << "------------------------------------------------\n";
         while (q)
         {
-            if (!strcasecmp(q->tipo, tipo.c_str())) cout << q->palabra << endl;
+            if (!strcasecmp(q->tipo, tipo.c_str())) cout << " " << q->palabra << endl;
             q = q->sig;
         }
     }
