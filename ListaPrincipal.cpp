@@ -2,7 +2,6 @@
 #include "ListaSecundaria.h"
 #include <iostream>
 #include <cstring>
-#include <map>
 using namespace std;
 
 ListaPrincipal::ListaPrincipal()
@@ -281,11 +280,12 @@ void ListaPrincipal::mostrarPorTipo()
     nodo_principal* q = p;
 
     // Relaciones entre números y tipos
-    map<int, string> opciones_tipos =
+    string opciones_tipos[] = 
     {
-        {1, "sustantivo"},
-        {2, "adjetivo"},
-        {3, "verbo"},
+        "salir",      // 0 
+        "sustantivo", // 1
+        "adjetivo",   // 2
+        "verbo"       // 3
     };
     // Booleano que controla si el submenú continuará mostrándose o no
     bool continuar = true;
@@ -330,5 +330,4 @@ void ListaPrincipal::mostrarPorTipo()
             q = q->sig;
         }
     }
-    cout << endl;
 }
