@@ -94,11 +94,6 @@ void ListaSecundaria::eliminar(char palabra[])
     }
 }
 
-bool ListaSecundaria::vacia()
-{
-    return !p;
-}
-
 int ListaSecundaria::largo()
 {
     nodo_secundario* q = p;

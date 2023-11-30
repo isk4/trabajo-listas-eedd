@@ -55,7 +55,7 @@ void ListaPrincipal::ingresar
         q->sig = p;
         
         // Comparamos alfabéticamente las palabras para ingresarlas
-        if (!p || strcasecmp(q->palabra, p->palabra) < 0)
+        if (!p || strcasecmp(q->palabra, p->palabra) <= 0)
             p = q;
         else {
             r = p->sig;
@@ -205,14 +205,21 @@ void ListaPrincipal::mostrarMayorMenorFreq()
 void ListaPrincipal::mostrarSinSecundarias()
 {
     nodo_principal* q = p;
-    cout << "Palabras sin sinónimos ni antónimos\n"
+    int cant_sinonimos, cant_antonimos;
+    cout << "Palabras sin sinónimos o antónimos\n"
         << "------------------------------------------------\n";
     while (q)
     {
-        // Verificamos que ambas listas secundarias estén vacías y mostramos
-        if (q->sinonimos->vacia() && q->antonimos->vacia())
+        // Verificamos si tiene alguna lista secundaria vacía y mostramos
+        cant_sinonimos = q->sinonimos->largo();
+        cant_antonimos = q->antonimos->largo();
+        if (!cant_sinonimos || !cant_antonimos)
         {
-            cout << " " << q->palabra << endl;
+            cout << " " << q->palabra << " (";
+            if (!cant_sinonimos && !cant_antonimos) cout << "sin sinonimos ni antónimos";
+            else if (!cant_sinonimos) cout << "sin sinónimos";
+            else cout << "sin antónimos";
+            cout << ")\n";
         }
         q = q->sig;
     }

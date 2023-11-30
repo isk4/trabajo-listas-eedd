@@ -23,10 +23,8 @@ public:
     void ingresar(char palabra[], int frecuencia_conocimiento);
     void eliminar(char palabra[]);
     void mostrar();
-    // Función que verifica si la lista está vacía
-    bool vacia();
     // Función que cuenta la cantidad de elementos en la lista
     int largo();
-    // Funci
+    // Función que añade las palabras a un mapa de frecuencias
     void anadirMapa(map<string, int> &mapa);
 };
