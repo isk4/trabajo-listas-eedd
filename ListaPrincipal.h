@@ -58,4 +58,6 @@ public:
     void mostrarMasSinonimos();
     // Función que muestra las palabras con más antónimos
     void mostrarMasAntonimos();
+    // Función que muestra las palabras de cierto tipo
+    void mostrarPorTipo();
 };

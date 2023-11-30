@@ -58,21 +58,22 @@ int main()
 
 void iniciar_menu(ListaPrincipal* lista_principal)
 {
-    // Booleano que controla si el menu continuará mostránodse o no
+    // Booleano que controla si el menú continuará mostrándose o no
     bool continuar = true;
     // String que recibe input del usuario
     string input_usuario;
-    // Opción del menu elegida
+    // Opción del menú elegida
     int opcion_menu;
     while (continuar)
     {
-        cout << "\nMenú de opciones"
+        cout << "\nMenú principal"
             << "\n------------------------------------------------\n"
             << "\n1. Mostrar todas las palabras disponibles y sus detalles\n"
             << "2. Mostrar palabras más y menos usadas\n"
             << "3. Mostrar palabras sin sinónimos ni antónimos\n"
             << "4. Mostrar palabras con más sinónimos\n"
             << "5. Mostrar palabras con más antónimos\n"
+            << "6. Mostrar palabras por tipo\n"
             << "0. Salir\n\nIngrese una opción: ";
         getline(cin, input_usuario);
 
@@ -82,7 +83,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
             opcion_menu = stoi(input_usuario);
             if (opcion_menu < 0 || opcion_menu > 10) throw 0;
         }
-        // Atajamos cualquier error y asignamos valor aleatorio en case de haberlo
+        // Atajamos cualquier error y asignamos valor aleatorio en caso de haberlo
         catch (...) { opcion_menu = -1; }
 
         cout << endl << endl;
@@ -93,20 +94,24 @@ void iniciar_menu(ListaPrincipal* lista_principal)
                 lista_principal->mostrar();
                 break;
             case 2:
-                // Mostramos las palabras más y menos usadas;
+                // Mostramos las palabras más y menos usadas
                 lista_principal->mostrarMayorMenorFreq();
                 break;
             case 3:
-                // Mostramos las palabras sin sinónimos ni antónimos;
+                // Mostramos las palabras sin sinónimos ni antónimos
                 lista_principal->mostrarSinSecundarias();
                 break;
             case 4:
-                // Mostramos las palabras sin sinónimos ni antónimos;
+                // Mostramos las palabras sin sinónimos ni antónimos
                 lista_principal->mostrarMasSinonimos();
                 break;
             case 5:
-                // Mostramos las palabras sin sinónimos ni antónimos;
+                // Mostramos las palabras sin sinónimos ni antónimos
                 lista_principal->mostrarMasAntonimos();
+                break;
+            case 6:
+                // Mostramos las palabras por tipo
+                lista_principal->mostrarPorTipo();
                 break;
             case 0:
                 // Salimos del ciclo

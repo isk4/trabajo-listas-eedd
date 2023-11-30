@@ -2,6 +2,7 @@
 #include "ListaSecundaria.h"
 #include <iostream>
 #include <cstring>
+#include <map>
 using namespace std;
 
 ListaPrincipal::ListaPrincipal()
@@ -273,4 +274,61 @@ void ListaPrincipal::mostrarMasAntonimos()
             q = q->sig;
         }
     }
+}
+
+void ListaPrincipal::mostrarPorTipo()
+{
+    nodo_principal* q = p;
+
+    // Relaciones entre números y tipos
+    map<int, string> opciones_tipos =
+    {
+        {1, "sustantivo"},
+        {2, "adjetivo"},
+        {3, "verbo"},
+    };
+    // Booleano que controla si el submenú continuará mostrándose o no
+    bool continuar = true;
+    // String que recibe input del usuario y tipo de palabra a consultar
+    string input_usuario, tipo;
+    // Opción del menu elegida
+    int opcion_menu;
+    while (continuar)
+    {
+        cout << "\nElija un tipo de palabra "
+            << "\n------------------------------------------------\n"
+            << "\n1. Sustantivo\n"
+            << "2. Adjetivo\n"
+            << "3. Verbo\n"
+            << "0. Volver al menú principal\n\nIngrese una opción: ";
+        getline(cin, input_usuario);
+
+        // Verificamos si el input es correcto
+        try
+        {
+            opcion_menu = stoi(input_usuario);
+            if (opcion_menu < 0 || opcion_menu > 3) throw 0;
+        }
+        // Atajamos cualquier error y asignamos valor aleatorio en caso de haberlo
+        catch (...) { opcion_menu = -1; }
+        
+        // Si no existe la opción, continuar preguntando por una
+        if (opcion_menu == -1) cout << "\nError de entrada. Intenta nuevamente\n\n";
+        else continuar = false;
+    }
+    cout << endl << endl;
+    // Si la opción es distinta de 0 (salir), mostramos
+    if (opcion_menu)
+    {
+        // Asignamos el tipo a consultar según la opción elegida
+        tipo = opciones_tipos[opcion_menu];
+        cout << "Palabras del tipo \"" << tipo << "\"\n"
+            << "------------------------------------------------\n";
+        while (q)
+        {
+            if (!strcasecmp(q->tipo, tipo.c_str())) cout << q->palabra << endl;
+            q = q->sig;
+        }
+    }
+    cout << endl;
 }
