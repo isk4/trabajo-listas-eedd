@@ -75,6 +75,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
             << "5. Mostrar palabras con más antónimos\n"
             << "6. Mostrar palabras por tipo\n"
             << "7. Mostrar sinónimo que más se repite entre las palabras\n"
+            << "8. Mostrar antónimo que más se repite entre las palabras\n"
             << "0. Salir\n\nIngrese una opción: ";
         getline(cin, input_usuario);
 
@@ -82,7 +83,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
         try
         {
             opcion_menu = stoi(input_usuario);
-            if (opcion_menu < 0 || opcion_menu > 10) throw 0;
+            if (opcion_menu < 0 || opcion_menu > 10) throw;
         }
         // Atajamos cualquier error y asignamos valor aleatorio en caso de haberlo
         catch (...) { opcion_menu = -1; }
@@ -116,7 +117,11 @@ void iniciar_menu(ListaPrincipal* lista_principal)
                 break;
             case 7:
                 // Mostramos el sinónimo que más se repite entre las palabras
-                lista_principal->mostrarSinonimoMasFrecuente();
+                lista_principal->mostrarSinonimosMasFrecuentes();
+                break;
+            case 8:
+                // Mostramos el sinónimo que más se repite entre las palabras
+                lista_principal->mostrarAntonimosMasFrecuentes();
                 break;
             case 0:
                 // Salimos del ciclo

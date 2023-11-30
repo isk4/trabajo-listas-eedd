@@ -333,7 +333,7 @@ void ListaPrincipal::mostrarPorTipo()
     }
 }
 
-void ListaPrincipal::mostrarSinonimoMasFrecuente()
+void ListaPrincipal::mostrarSinonimosMasFrecuentes()
 {
     nodo_principal* q = p;
     int max = 0;
@@ -354,6 +354,32 @@ void ListaPrincipal::mostrarSinonimoMasFrecuente()
         << "------------------------------------------------\n";
 
     for (elemento = mapa_sinonimos.begin(); elemento != mapa_sinonimos.end(); elemento++)
+    {
+        if (elemento->second == max) cout << " " << elemento->first << endl;
+    }
+}
+
+void ListaPrincipal::mostrarAntonimosMasFrecuentes()
+{
+    nodo_principal* q = p;
+    int max = 0;
+    map<string, int> mapa_antonimos;
+    map<string, int>::iterator elemento;
+
+    while (q)
+    {
+        q->antonimos->anadirMapa(mapa_antonimos);
+        q = q->sig;
+    }
+
+    for (elemento = mapa_antonimos.begin(); elemento != mapa_antonimos.end(); elemento++)
+    {
+        if (elemento->second > max && elemento->second >= 2) max = elemento->second;
+    }
+    cout << "Sinónimos que más se repiten (frecuencia: " << max << ")\n"
+        << "------------------------------------------------\n";
+
+    for (elemento = mapa_antonimos.begin(); elemento != mapa_antonimos.end(); elemento++)
     {
         if (elemento->second == max) cout << " " << elemento->first << endl;
     }
