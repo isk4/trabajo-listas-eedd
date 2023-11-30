@@ -47,7 +47,7 @@ int main()
     // Iniciando menu
     iniciar_menu(&lista_principal);
 
-    cout << "\nAdiós.\n";
+    cout << "Adiós.\n";
 
     // Ejemplo de eliminación de palabra
     // char palabra_a_eliminar[] = "vocablo";

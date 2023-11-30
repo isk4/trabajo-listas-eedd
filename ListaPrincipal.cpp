@@ -139,10 +139,12 @@ void ListaPrincipal::llenarConBinario(info_binario info)
         // extraídos y se ingresan a sus listas correspondientes
         for (int j = 0; j < info.datos[i].cant_sinonimos; j++)
             lista_sinonimos->ingresar(info.datos[i].sinonimos[j].palabra, info.datos[i].sinonimos[j].frecuencia_conocimiento);
-
+        // Eliminamos los sinónimos duplicados
+        lista_sinonimos->eliminarDuplicados();
         for (int j = 0; j < info.datos[i].cant_antonimos; j++)
             lista_antonimos->ingresar(info.datos[i].antonimos[j].palabra, info.datos[i].antonimos[j].frecuencia_conocimiento);
-        
+        // Eliminamos los antónimos duplicados
+        lista_antonimos->eliminarDuplicados();
         // Finalmente se ingresa el nuevo nodo con toda la información
         ingresar
         (
@@ -155,6 +157,7 @@ void ListaPrincipal::llenarConBinario(info_binario info)
             lista_antonimos
         );
     }
+    eliminarDuplicados();
 }
 
 void ListaPrincipal::mostrarMayorMenorFreq()
@@ -389,5 +392,22 @@ void ListaPrincipal::mostrarAntonimosMasFrecuentes()
     for (elemento = mapa_antonimos.begin(); elemento != mapa_antonimos.end(); elemento++)
     {
         if (elemento->second == max) cout << " " << elemento->first << endl;
+    }
+}
+
+void ListaPrincipal::eliminarDuplicados()
+{
+    nodo_principal* q = p;
+    nodo_principal* aux;
+    while (q)
+    {
+        // Si existe palabra siguiente y son iguales, eliminar
+        if (q->sig && !strcasecmp(q->palabra, q->sig->palabra))
+        {
+            aux = q->sig->sig;
+            delete q->sig;
+            q->sig = aux;
+        }
+        q = q->sig;
     }
 }

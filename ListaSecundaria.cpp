@@ -119,3 +119,20 @@ void ListaSecundaria::anadirMapa(map<string, int> &mapa)
         q = q->sig;
     }
 }
+
+void ListaSecundaria::eliminarDuplicados()
+{
+    nodo_secundario* q = p;
+    nodo_secundario* aux;
+    while (q)
+    {
+        // Si existe palabra siguiente y son iguales, eliminar
+        if (q->sig && !strcasecmp(q->palabra, q->sig->palabra))
+        {
+            aux = q->sig->sig;
+            delete q->sig;
+            q->sig = aux;
+        }
+        q = q->sig;
+    }
+}

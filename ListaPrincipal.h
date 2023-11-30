@@ -64,4 +64,6 @@ public:
     void mostrarSinonimosMasFrecuentes();
     // Función que muestra los antónimos más frecuente entre las palabras
     void mostrarAntonimosMasFrecuentes();
+    // Función que elimina los elementos duplicados de la lista
+    void eliminarDuplicados();
 };

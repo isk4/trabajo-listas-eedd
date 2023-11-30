@@ -27,4 +27,6 @@ public:
     int largo();
     // Función que añade las palabras a un mapa de frecuencias
     void anadirMapa(map<string, int> &mapa);
+    // Función que elimina los elementos duplicados de la lista
+    void eliminarDuplicados();
 };
