@@ -5,7 +5,7 @@ Profesor          : Yuri Cáceres Hernández
 IDE               : VisualStudio Code
 Compilador        : g++ (Debian 10.2.1-6) 10.2.1 20210110
 Sistema operativo : Debian GNU/Linux 11 (bullseye) (WSL2)
-Fecha             : 23/11/2023
+Fecha             : 30/11/2023
 
 Descripción de la solución:
 
@@ -68,17 +68,17 @@ void iniciar_menu(ListaPrincipal* lista_principal)
     {
         cout << "\nMenú principal"
             << "\n------------------------------------------------\n"
-            << "\n1. Mostrar todas las palabras disponibles y sus detalles\n"
-            << "2. Mostrar palabras más y menos usadas\n"
-            << "3. Mostrar palabras sin sinónimos o antónimos\n"
-            << "4. Mostrar palabras con más sinónimos\n"
-            << "5. Mostrar palabras con más antónimos\n"
-            << "6. Mostrar palabras por tipo\n"
-            << "7. Mostrar sinónimo que más se repite entre las palabras\n"
-            << "8. Mostrar antónimo que más se repite entre las palabras\n"
-            << "9. Buscar palabra\n"
+            << "\n1.  Mostrar todas las palabras disponibles y sus detalles\n"
+            << "2.  Mostrar palabras más y menos usadas\n"
+            << "3.  Mostrar palabras sin sinónimos o antónimos\n"
+            << "4.  Mostrar palabras con más sinónimos\n"
+            << "5.  Mostrar palabras con más antónimos\n"
+            << "6.  Mostrar palabras por tipo\n"
+            << "7.  Mostrar sinónimo que más se repite entre las palabras\n"
+            << "8.  Mostrar antónimo que más se repite entre las palabras\n"
+            << "9.  Buscar palabra\n"
             << "10. Mostrar todos los sinónimos y antónimos disponibles\n"
-            << "0. Salir\n\nIngrese una opción: ";
+            << "0.  Salir\n\nIngrese una opción: ";
         getline(cin, input_usuario);
 
         // Verificamos si el input es correcto

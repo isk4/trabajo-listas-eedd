@@ -7,6 +7,7 @@ using namespace std;
 
 ListaPrincipal::ListaPrincipal()
 {
+    // Iniciando cabeza de lista en NULL
     p = NULL;
 }
 
@@ -113,8 +114,8 @@ void ListaPrincipal::mostrar()
             << " Tipo: " << q->tipo << endl
             << " Descripción: " << q->descripcion << endl
             << " Frecuencia de conocimiento: " << q->frecuencia_conocimiento << endl
-             << " Ejemplo de uso: " << q->ejemplo << endl;
-        cout << " Sinonimos:" << endl;
+            << " Ejemplo de uso: " << q->ejemplo << endl
+            << " Sinonimos:" << endl;
         // Se muestran las listas de sinónimos y antónimos de la palabra
         q->sinonimos->mostrar();
         cout << " Antonimos:" << endl;
@@ -157,11 +158,13 @@ void ListaPrincipal::llenarConBinario(info_binario info)
             lista_antonimos
         );
     }
+    // Eliminamos palabras duplicadas de la lista principal
     eliminarDuplicados();
 }
 
 void ListaPrincipal::mostrarMayorMenorFreq()
 {
+    // Frecuencia mínima y máxima
     int max;
     int min;
     if (p)
@@ -171,6 +174,7 @@ void ListaPrincipal::mostrarMayorMenorFreq()
         max = min = q->frecuencia_conocimiento;
         while (q)
         {   
+            // Actualizamos valores máximos y mínimos
             if (q->frecuencia_conocimiento > max) max = q->frecuencia_conocimiento;
             if (q->frecuencia_conocimiento < min) min = q->frecuencia_conocimiento;
 
@@ -231,7 +235,9 @@ void ListaPrincipal::mostrarSinSecundarias()
 void ListaPrincipal::mostrarMasSinonimos()
 {
     nodo_principal* q = p;
+    // Cantidad máxima de sinónimos
     int max = 0;
+    // Auxiliar para guardar el largo de una lista y no recorrerla de nuevo
     int aux;
 
     if (q)
@@ -260,7 +266,9 @@ void ListaPrincipal::mostrarMasSinonimos()
 void ListaPrincipal::mostrarMasAntonimos()
 {
     nodo_principal* q = p;
+    // Cantidad máxima de antónimos
     int max = 0;
+    // Auxiliar para guardar el largo de una lista y no recorrerla de nuevo
     int aux;
 
     if (q)
@@ -346,23 +354,28 @@ void ListaPrincipal::mostrarPorTipo()
 void ListaPrincipal::mostrarSinonimosMasFrecuentes()
 {
     nodo_principal* q = p;
+    // Variable que guarda la cantidad de repeticiones de un sinónimo
     int max = 0;
+    // Mapa que guardará los sinónimos y su cantidad de repeticiones
     map<string, int> mapa_sinonimos;
+    // Iterador para el mapa
     map<string, int>::iterator elemento;
 
     while (q)
     {
+        // Añadirmos los sinónimos al mapa
         q->sinonimos->anadirMapaRepeticiones(mapa_sinonimos);
         q = q->sig;
     }
 
+    // Cálculamos la cantidad máxima de repeticiones
     for (elemento = mapa_sinonimos.begin(); elemento != mapa_sinonimos.end(); elemento++)
     {
         if (elemento->second > max && elemento->second >= 2) max = elemento->second;
     }
     cout << "Sinónimos que más se repiten (repeticiones: " << max << ")\n"
         << "------------------------------------------------\n";
-
+    // Mostrando las palabras correspondientes
     for (elemento = mapa_sinonimos.begin(); elemento != mapa_sinonimos.end(); elemento++)
     {
         if (elemento->second == max) cout << " " << elemento->first << endl;
@@ -372,23 +385,28 @@ void ListaPrincipal::mostrarSinonimosMasFrecuentes()
 void ListaPrincipal::mostrarAntonimosMasFrecuentes()
 {
     nodo_principal* q = p;
+    // Variable que guarda la cantidad de repeticiones de un antónimo
     int max = 0;
+    // Mapa que guardará los antónimos y su cantidad de repeticiones
     map<string, int> mapa_antonimos;
+    // Iterador para el mapa
     map<string, int>::iterator elemento;
 
     while (q)
     {
+        // Añadirmos los sinónimos al mapa
         q->antonimos->anadirMapaRepeticiones(mapa_antonimos);
         q = q->sig;
     }
 
+    // Cálculamos la cantidad máxima de repeticiones
     for (elemento = mapa_antonimos.begin(); elemento != mapa_antonimos.end(); elemento++)
     {
         if (elemento->second > max && elemento->second >= 2) max = elemento->second;
     }
     cout << "Sinónimos que más se repiten (repeticiones: " << max << ")\n"
         << "------------------------------------------------\n";
-
+    // Mostrando las palabras correspondientes
     for (elemento = mapa_antonimos.begin(); elemento != mapa_antonimos.end(); elemento++)
     {
         if (elemento->second == max) cout << " " << elemento->first << endl;
@@ -447,19 +465,24 @@ void ListaPrincipal::mostrarPalabra()
 void ListaPrincipal::mostrarSinonimosAntonimos()
 {
     nodo_principal* q = p;
+    // Mapa de sinónimos y sus frecuencias de conocimiento
     map<string, int> mapa_sinonimos;
+    // Mapa de antónimos y sus frecuencias de conocimiento
     map<string, int> mapa_antonimos;
+    // Iterador de los mapas
     map<string, int>::iterator elemento;
 
     cout << "Mostrando todos los sinónimos y antónimos disponibles\n\n";
 
     while (q)
     {
+        // Añadiendo sinónimos y antónimos a sus mapas correspondientes
         q->sinonimos->anadirMapa(mapa_sinonimos);
         q->antonimos->anadirMapa(mapa_antonimos);
         q = q->sig;
     }
 
+    // Mostrando los datos recopilados
     cout << "Sinónimos\n"
         << "------------------------------------------------\n";
 

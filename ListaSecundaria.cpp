@@ -97,9 +97,11 @@ void ListaSecundaria::eliminar(char palabra[])
 int ListaSecundaria::largo()
 {
     nodo_secundario* q = p;
+    // Largo de la lista
     int largo = 0;
     while (q)
     {
+        // Sumamos uno cada vez que encontremos un elemento
         largo++;
         q = q->sig;
     }
