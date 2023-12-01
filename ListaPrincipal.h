@@ -66,4 +66,6 @@ public:
     void mostrarAntonimosMasFrecuentes();
     // Función que elimina los elementos duplicados de la lista
     void eliminarDuplicados();
+    // Función que muestra los detalles de una palabra en particular
+    void mostrarPalabra();
 };

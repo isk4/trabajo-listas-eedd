@@ -411,3 +411,37 @@ void ListaPrincipal::eliminarDuplicados()
         q = q->sig;
     }
 }
+
+void ListaPrincipal::mostrarPalabra()
+{
+    nodo_principal* q = p;
+    // Palabra a buscar
+    string input_usuario;
+    cout << "Ingrese palabra a buscar: ";
+    getline(cin, input_usuario);
+
+    // Buscamos la palabra
+    while (q && strcasecmp(q->palabra, input_usuario.c_str())) q = q->sig;
+    // Si se encontró la palabra, mostrar
+    if (q)
+    {
+        cout << "\n------------------------------------------------\n" 
+            << " Palabra: " << q->palabra << endl
+            << " Tipo: " << q->tipo << endl
+            << " Descripción: " << q->descripcion << endl
+            << " Frecuencia de conocimiento: " << q->frecuencia_conocimiento << endl
+            << " Ejemplo de uso: " << q->ejemplo << endl;
+        cout << " Sinonimos:" << endl;
+        // Se muestran las listas de sinónimos y antónimos de la palabra
+        q->sinonimos->mostrar();
+        cout << " Antonimos:" << endl;
+        q->antonimos->mostrar();
+        cout << "------------------------------------------------" << endl;
+    }
+    else
+    {
+        cout << "\nNo se encontró la palabra\n";
+    }
+    cout << "\nPresione enter para continuar";
+    cin.get();
+}
