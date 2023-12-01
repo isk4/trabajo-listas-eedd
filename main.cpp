@@ -115,7 +115,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
                 break;
             case 6:
                 // Mostramos las palabras por tipo
-                lista_principal->mostrarPorTipo();
+                lista_principal->mostrarPorTipo(opcion_menu);
                 break;
             case 7:
                 // Mostramos el sinónimo que más se repite entre las palabras

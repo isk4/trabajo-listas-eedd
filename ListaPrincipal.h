@@ -59,7 +59,7 @@ public:
     // Función que muestra las palabras con más antónimos
     void mostrarMasAntonimos();
     // Función que muestra las palabras de cierto tipo
-    void mostrarPorTipo();
+    void mostrarPorTipo(int &opcion_menu);
     // Función que muestra los sinónimos más frecuente entre las palabras
     void mostrarSinonimosMasFrecuentes();
     // Función que muestra los antónimos más frecuente entre las palabras

@@ -294,7 +294,7 @@ void ListaPrincipal::mostrarMasAntonimos()
     }
 }
 
-void ListaPrincipal::mostrarPorTipo()
+void ListaPrincipal::mostrarPorTipo(int &opcion_menu)
 {
     nodo_principal* q = p;
 
@@ -311,7 +311,6 @@ void ListaPrincipal::mostrarPorTipo()
     // String que recibe input del usuario y tipo de palabra a consultar
     string input_usuario, tipo;
     // Opción del menu elegida
-    int opcion_menu;
     while (continuar)
     {
         cout << "\nElija un tipo de palabra "
