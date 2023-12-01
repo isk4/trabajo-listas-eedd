@@ -25,7 +25,9 @@ public:
     void mostrar();
     // Función que cuenta la cantidad de elementos en la lista
     int largo();
-    // Función que añade las palabras a un mapa de frecuencias
+    // Función que añade las palabras con su numero de repeticiones a un mapa
+    void anadirMapaRepeticiones(map<string, int> &mapa);
+    // Función que añade las palabras con su frecuencia de conocimiento a un mapa
     void anadirMapa(map<string, int> &mapa);
     // Función que elimina los elementos duplicados de la lista
     void eliminarDuplicados();

@@ -352,7 +352,7 @@ void ListaPrincipal::mostrarSinonimosMasFrecuentes()
 
     while (q)
     {
-        q->sinonimos->anadirMapa(mapa_sinonimos);
+        q->sinonimos->anadirMapaRepeticiones(mapa_sinonimos);
         q = q->sig;
     }
 
@@ -360,7 +360,7 @@ void ListaPrincipal::mostrarSinonimosMasFrecuentes()
     {
         if (elemento->second > max && elemento->second >= 2) max = elemento->second;
     }
-    cout << "Sinónimos que más se repiten (frecuencia: " << max << ")\n"
+    cout << "Sinónimos que más se repiten (repeticiones: " << max << ")\n"
         << "------------------------------------------------\n";
 
     for (elemento = mapa_sinonimos.begin(); elemento != mapa_sinonimos.end(); elemento++)
@@ -378,7 +378,7 @@ void ListaPrincipal::mostrarAntonimosMasFrecuentes()
 
     while (q)
     {
-        q->antonimos->anadirMapa(mapa_antonimos);
+        q->antonimos->anadirMapaRepeticiones(mapa_antonimos);
         q = q->sig;
     }
 
@@ -386,7 +386,7 @@ void ListaPrincipal::mostrarAntonimosMasFrecuentes()
     {
         if (elemento->second > max && elemento->second >= 2) max = elemento->second;
     }
-    cout << "Sinónimos que más se repiten (frecuencia: " << max << ")\n"
+    cout << "Sinónimos que más se repiten (repeticiones: " << max << ")\n"
         << "------------------------------------------------\n";
 
     for (elemento = mapa_antonimos.begin(); elemento != mapa_antonimos.end(); elemento++)
@@ -465,13 +465,13 @@ void ListaPrincipal::mostrarSinonimosAntonimos()
 
     for (elemento = mapa_sinonimos.begin(); elemento != mapa_sinonimos.end(); elemento++)
     {
-        cout << " " << elemento->first << endl;
+        cout << " " << elemento->first << " (frecuencia:" << elemento->second << ")" << endl;
     }
     cout << "\n\nAntónimos\n"
         << "------------------------------------------------\n";
 
     for (elemento = mapa_antonimos.begin(); elemento != mapa_antonimos.end(); elemento++)
     {
-        cout << " " << elemento->first << endl;
+        cout << " " << elemento->first << " (frecuencia: " << elemento->second << ")" << endl;
     }
 }

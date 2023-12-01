@@ -106,7 +106,7 @@ int ListaSecundaria::largo()
     return largo;
 } 
 
-void ListaSecundaria::anadirMapa(map<string, int> &mapa)
+void ListaSecundaria::anadirMapaRepeticiones(map<string, int> &mapa)
 {
     nodo_secundario* q = p;
 
@@ -116,6 +116,18 @@ void ListaSecundaria::anadirMapa(map<string, int> &mapa)
         if (!mapa.insert(pair<string, int>(q->palabra, 1)).second)
             // Si no se pudo insertar, actualizamos su frecuencia
             mapa[q->palabra]++;
+        q = q->sig;
+    }
+}
+
+void ListaSecundaria::anadirMapa(map<string, int> &mapa)
+{
+    nodo_secundario* q = p;
+
+    while (q)
+    {
+        // Intentamos ingresar la palabra con su fercuencia de conocimiento en el mapa
+        mapa.insert(pair<string, int>(q->palabra, q->frecuencia_conocimiento));
         q = q->sig;
     }
 }
