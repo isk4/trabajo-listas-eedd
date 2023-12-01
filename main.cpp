@@ -77,6 +77,7 @@ void iniciar_menu(ListaPrincipal* lista_principal)
             << "7. Mostrar sinónimo que más se repite entre las palabras\n"
             << "8. Mostrar antónimo que más se repite entre las palabras\n"
             << "9. Buscar palabra\n"
+            << "10. Mostrar todos los sinónimos y antónimos disponibles\n"
             << "0. Salir\n\nIngrese una opción: ";
         getline(cin, input_usuario);
 
@@ -128,6 +129,10 @@ void iniciar_menu(ListaPrincipal* lista_principal)
                 // Mostrar detalles de una palabra
                 lista_principal->mostrarPalabra();
                 break;
+            case 10:
+                // Mostrar todos los sinónimos y antónimos asociados a las palabras
+                lista_principal->mostrarSinonimosAntonimos();
+                break;
             case 0:
                 // Salimos del ciclo
                 continuar = false;
@@ -135,6 +140,12 @@ void iniciar_menu(ListaPrincipal* lista_principal)
             default:
                 // Mostramos error
                 cout << "\nError de entrada. Intenta nuevamente\n\n";
+        }
+        // Siempre que no se haya saido del menú, mostrar mensaje de espera
+        if (opcion_menu)
+        {
+            cout << "\nPresione enter para continuar...";
+            cin.get();
         }
         cout << endl;
     }

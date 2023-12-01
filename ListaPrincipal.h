@@ -68,4 +68,6 @@ public:
     void eliminarDuplicados();
     // Función que muestra los detalles de una palabra en particular
     void mostrarPalabra();
+    // Función que muestra todos los sinónimos y antónimos asociados a las palabras
+    void mostrarSinonimosAntonimos();
 };

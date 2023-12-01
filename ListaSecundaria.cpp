@@ -59,7 +59,7 @@ void ListaSecundaria::mostrar()
     nodo_secundario* q = p;
     while (q)
     {
-        cout << "\t" << q->palabra << endl;
+        cout << "\t" << q->palabra << " (frecuencia: " << q->frecuencia_conocimiento << ")" << endl;
         q = q->sig;
     }
 }

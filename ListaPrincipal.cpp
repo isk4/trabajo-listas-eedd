@@ -442,6 +442,36 @@ void ListaPrincipal::mostrarPalabra()
     {
         cout << "\nNo se encontró la palabra\n";
     }
-    cout << "\nPresione enter para continuar";
-    cin.get();
+}
+
+void ListaPrincipal::mostrarSinonimosAntonimos()
+{
+    nodo_principal* q = p;
+    map<string, int> mapa_sinonimos;
+    map<string, int> mapa_antonimos;
+    map<string, int>::iterator elemento;
+
+    cout << "Mostrando todos los sinónimos y antónimos disponibles\n\n";
+
+    while (q)
+    {
+        q->sinonimos->anadirMapa(mapa_sinonimos);
+        q->antonimos->anadirMapa(mapa_antonimos);
+        q = q->sig;
+    }
+
+    cout << "Sinónimos\n"
+        << "------------------------------------------------\n";
+
+    for (elemento = mapa_sinonimos.begin(); elemento != mapa_sinonimos.end(); elemento++)
+    {
+        cout << " " << elemento->first << endl;
+    }
+    cout << "\n\nAntónimos\n"
+        << "------------------------------------------------\n";
+
+    for (elemento = mapa_antonimos.begin(); elemento != mapa_antonimos.end(); elemento++)
+    {
+        cout << " " << elemento->first << endl;
+    }
 }
